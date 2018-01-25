@@ -1,0 +1,36 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"removeCanceledChars","[","input_","]"}]," ",":="," ",RowBox[
+{"StringReplace","[",RowBox[{"input",","," ",RowBox[{RowBox[{"\"!\"","~~","_"}]," ","\[Rule]"," ","\"\""}]}],"]"}]}]],
+"Input",CellID->44,CellLabel->"In[1]:= "],Cell[
+BoxData[RowBox[{RowBox[{"garbageCollect","[","input_","]"}]," ",":="," ",RowBox[
+{"StringReplace","[",RowBox[{"input",","," ",RowBox[{RowBox[{"\"<\"","~~",RowBox[
+{RowBox[{"Except","[","\">\"","]"}],"..."}],"~~","\">\""}]," ","\[Rule]"," ","\"<>\""}]}],"]"}]}]],
+"Input",CellID->45,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{RowBox[{"part1","[","input_","]"}],":="," ",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"level",","," ","score",","," ","munged"}],"}"}],",","\n",RowBox[
+{RowBox[{"munged"," ","="," ",RowBox[{"garbageCollect","[",RowBox[{"removeCanceledChars","[","input","]"}],"]"}]}],";","\n",RowBox[
+{"level"," ","="," ","0"}],";"," ",RowBox[{"score"," ","="," ","0"}],";","\n",RowBox[
+{RowBox[{RowBox[{"(","\n",RowBox[{RowBox[{"If","[",RowBox[{RowBox[{"#"," ","=="," ","\"{\""}],",",RowBox[
+{RowBox[{"level"," ","+="," ","1"}],";"," ",RowBox[{"score"," ","+="," ","level"}]}]}],"]"}],";","\n",RowBox[
+{"If","[",RowBox[{RowBox[{"#"," ","=="," ","\"}\""}],","," ",RowBox[{"level"," ","-="," ","1"}]}],"]"}],";"}],"\n",")"}],"&"}]," ","/@",RowBox[
+{"Characters","[","munged","]"}]}],";","\n","score"}]}],"\n","]"}]}]],"Input",CellID->1,
+CellLabel->"In[3]:= "],Cell[
+BoxData[RowBox[{RowBox[{"part2","[","input_","]"}]," ",":="," ",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"munged",","," ","canceled"}],"}"}],",","\n",RowBox[
+{RowBox[{"canceled"," ","="," ",RowBox[{"removeCanceledChars","[","input","]"}]}],";","\n",RowBox[
+{"munged"," ","="," ",RowBox[{"garbageCollect","[","canceled","]"}]}],";","\n",RowBox[
+{RowBox[{"StringLength","[","canceled","]"}]," ","-"," ",RowBox[{"StringLength","[","munged","]"}]}]}]}],"\n","]"}]}]],
+"Input",CellID->9,CellLabel->"In[4]:= "],Cell[
+BoxData[RowBox[{RowBox[{"a"," ","="," ",RowBox[
+{"ReadString","[","\"day9input.txt\"","]"}]}],";"}]],"Input",CellID->2,CellLabel->"In[5]:= "],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"part1","[","a","]"}]],"Input",CellID->3,CellLabel->"In[6]:= "],Cell[
+BoxData[
+"16021",StandardForm],"Output",CellID->46,CellLabel->"Out[6]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"part2","[","a","]"}]],"Input",CellID->12,CellLabel->"In[7]:= "],Cell[
+BoxData[
+"7685",StandardForm],"Output",CellID->48,CellLabel->"Out[7]= "]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

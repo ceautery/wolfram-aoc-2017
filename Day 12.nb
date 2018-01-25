@@ -1,0 +1,30 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"a"," ","="," ",RowBox[{"ReadString","[","\"day12input.txt\"","]"}]}],";"}]],
+"Input",CellID->1,CellLabel->"In[1]:= "],Cell[
+BoxData[RowBox[{RowBox[{"rules"," ","="," ",RowBox[
+{RowBox[{"StringReplace","[",RowBox[{"a",","," ",RowBox[{"{",RowBox[{RowBox[{"\"<-> \""," ","\[Rule]"," ","\"-> {\""}],",",RowBox[
+{"StartOfString"," ","\[Rule]"," ","\"{\""}],","," ",RowBox[{"EndOfString"," ","\[Rule]"," ","\"}}\""}],","," ",RowBox[
+{"EndOfLine"," ","\[Rule]"," ","\"},\""}]}],"}"}]}],"]"}]," ","//"," ","ToExpression"}]}],";"}]],
+"Input",CellID->5,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{RowBox[{"iterate","[","rule_","]"}]," ",":="," ",RowBox[
+{RowBox[{"(",RowBox[{RowBox[{RowBox[{"Keys","[","rule","]"}]," ","\[Rule]"," ","#"}],"&"}],")"}]," ","/@"," ",RowBox[
+{"Values","[","rule","]"}]}]}]],"Input",CellID->159,CellLabel->"In[3]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{"graph"," ","="," ",RowBox[{RowBox[{RowBox[{"iterate"," ","/@"," ","rules"}]," ","//"," ","Flatten"}]," ","//"," ","Graph"}]}],";"}]],
+"Input",CellID->160,CellLabel->"In[4]:= "],Cell[
+BoxData[RowBox[{RowBox[{"connected"," ","="," ",RowBox[
+{"ConnectedComponents","[","graph","]"}]}],";"}]],"Input",CellID->241,CellLabel->"In[5]:= "],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"part1"," ","="," ",RowBox[{RowBox[{RowBox[{"Select","[",RowBox[
+{"connected",","," ",RowBox[{RowBox[{"ContainsAll","[",RowBox[{"#",","," ",RowBox[
+{"{","0","}"}]}],"]"}],"&"}]}],"]"}]," ","//"," ","First"}]," ","//"," ","Length"}]}]],
+"Input",CellID->305,CellLabel->"In[6]:= "],Cell[
+BoxData["113",StandardForm],"Output",
+CellID->55,CellLabel->"Out[6]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part2"," ","="," ",RowBox[{"Length","[","connected","]"}]}]],"Input",CellID->321,
+CellLabel->"In[7]:= "],Cell[
+BoxData["202",StandardForm],"Output",CellID->57,CellLabel->"Out[7]= "]},
+Open]]},StyleDefinitions->"Default.nb",FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

@@ -1,0 +1,45 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"directions"," ","="," ",RowBox[
+{"<|"," ",RowBox[{RowBox[{"\"n\""," ","\[Rule]"," ",RowBox[{"{",RowBox[{"0",","," ","2"}],"}"}]}],","," ",RowBox[
+{"\"s\""," ","\[Rule]"," ",RowBox[{"{",RowBox[{"0",",","  ",RowBox[{"-","2"}]}],"}"}]}],","," ",RowBox[
+{"\"ne\""," ","\[Rule]"," ",RowBox[{"{",RowBox[{"1",","," ","1"}],"}"}]}],","," ",RowBox[
+{"\"nw\""," ","\[Rule]"," ",RowBox[{"{"," ",RowBox[{RowBox[{"-","1"}],","," ","1"}],"}"}]}],","," ",RowBox[
+{"\"se\""," ","\[Rule]"," ",RowBox[{"{",RowBox[{"1",",","  ",RowBox[{"-","1"}]}],"}"}]}],","," ",RowBox[
+{"\"sw\""," ","\[Rule]"," ",RowBox[{"{"," ",RowBox[{RowBox[{"-","1"}],",","  ",RowBox[
+{"-","1"}]}],"}"}]}]}]," ","|>"}]}]],"Input",CellID->14,CellLabel->"In[1]:= "],Cell[
+BoxData[
+RowBox[{"\:f113",RowBox[{RowBox[{"\"n\"","\[Rule]",RowBox[{"{",RowBox[{"0",",","2"}],"}"}]}],",",RowBox[
+{"\"s\"","\[Rule]",RowBox[{"{",RowBox[{"0",",",RowBox[{"-","2"}]}],"}"}]}],",",RowBox[
+{"\"ne\"","\[Rule]",RowBox[{"{",RowBox[{"1",",","1"}],"}"}]}],",",RowBox[{"\"nw\"","\[Rule]",RowBox[
+{"{",RowBox[{RowBox[{"-","1"}],",","1"}],"}"}]}],",",RowBox[{"\"se\"","\[Rule]",RowBox[
+{"{",RowBox[{"1",",",RowBox[{"-","1"}]}],"}"}]}],",",RowBox[{"\"sw\"","\[Rule]",RowBox[
+{"{",RowBox[{RowBox[{"-","1"}],",",RowBox[{"-","1"}]}],"}"}]}]}],"\:f114"}],StandardForm],
+"Output",CellID->126,CellLabel->"Out[1]= "]},Open]],Cell[
+BoxData[RowBox[{RowBox[
+{"distance","[","p_","]"}]," ",":="," ",RowBox[{"Module","[",RowBox[{RowBox[{"{",RowBox[
+{"x",","," ","y"}],"}"}],",","\n",RowBox[{RowBox[{"x"," ","="," ",RowBox[{"Abs","[",RowBox[
+{"p","[",RowBox[{"[","1","]"}],"]"}],"]"}]}],";"," ",RowBox[{"y"," ","="," ",RowBox[
+{"Abs","[",RowBox[{"p","[",RowBox[{"[","2","]"}],"]"}],"]"}]}],";","\n",RowBox[{"If","[",RowBox[
+{RowBox[{"x"," ",">"," ","y"}],","," ","x",","," ",RowBox[{"x"," ","+"," ",RowBox[
+{"Quotient","[",RowBox[{RowBox[{"y"," ","-"," ","x"}],",","2"}],"]"}]}]}],"]"}]}]}],"\n","]"}]}]],
+"Input",CellID->95,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{RowBox[{"path"," ","="," ",RowBox[
+{RowBox[{"Import","[",RowBox[{"\"hex.txt\"",","," ","\"CSV\""}],"]"}]," ","//"," ","First"}]}],";"}]],
+"Input",CellID->31,CellLabel->"In[3]:= "],Cell[
+BoxData[RowBox[{RowBox[{"pos"," ","="," ",RowBox[
+{"{",RowBox[{"0",",","0"}],"}"}]}],";"," ",RowBox[{"positions"," ","="," ",RowBox[
+{"(",RowBox[{RowBox[{RowBox[{"pos"," ","+="," ",RowBox[{"directions","[","#","]"}]}],"&"}]," ","/@"," ","path"}],")"}]}],";"}]],
+"Input",CellID->10,CellLabel->"In[4]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part1"," ","="," ",RowBox[{RowBox[{"positions"," ","//"," ","Last"}]," ","//"," ","distance"}]}]],
+"Input",CellID->118,CellLabel->"In[5]:= "],Cell[
+BoxData["720",StandardForm],"Output",
+CellID->128,CellLabel->"Out[5]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part2"," ","="," ",RowBox[{"Max","[",RowBox[{"distance"," ","/@"," ","positions"}],"]"}]}]],
+"Input",CellID->32,CellLabel->"In[6]:= "],Cell[
+BoxData["1485",StandardForm],"Output",
+CellID->130,CellLabel->"Out[6]= "]},Open]]},StyleDefinitions->"Default.nb",FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

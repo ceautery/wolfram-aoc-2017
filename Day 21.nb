@@ -1,0 +1,62 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"a"," ","="," ",RowBox[{RowBox[{RowBox[{"StringSplit","[",RowBox[
+{"#",",","\" => \""}],"]"}],"&"}]," ","/@"," ",RowBox[{"Import","[",RowBox[{"\"day21input.txt\"",","," ","\"Lines\""}],"]"}]}]}],";"}]],
+"Input",CellID->1,CellLabel->"In[1]:= "],Cell[
+BoxData[RowBox[{RowBox[{"makeArray","[","str_","]"}]," ",":="," ",RowBox[
+{"Characters","@",RowBox[{"StringSplit","[",RowBox[{"str",","," ","\"/\""}],"]"}]}]}]],
+"Input",CellID->166,CellLabel->"In[2]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"board"," ","="," ",RowBox[{"makeArray","[","\".#./..#/###\"","]"}]}]],"Input",CellID->24,
+CellLabel->"In[3]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"\".\"",",","\"#\"",",","\".\""}],"}"}],",",RowBox[
+{"{",RowBox[{"\".\"",",","\".\"",",","\"#\""}],"}"}],",",RowBox[{"{",RowBox[{"\"#\"",",","\"#\"",",","\"#\""}],"}"}]}],"}"}],
+StandardForm],"Output",CellID->576,CellLabel->"Out[3]= "]},Open]],Cell[
+BoxData[RowBox[
+{RowBox[{"rules"," ","="," ",RowBox[{RowBox[{RowBox[{RowBox[{"makeArray","@",RowBox[
+{"#","[",RowBox[{"[","1","]"}],"]"}]}]," ","\[Rule]"," ",RowBox[{"makeArray","@",RowBox[
+{"#","[",RowBox[{"[","2","]"}],"]"}]}]}],"&"}]," ","/@"," ","a"}]}],";"}]],"Input",
+CellID->131,CellLabel->"In[4]:= "],Cell[
+BoxData[RowBox[{RowBox[{"rotations","[","t_","]"}]," ",":="," ",RowBox[
+{"{",RowBox[{RowBox[{"t","\[Transpose]"}],",",RowBox[{"Reverse","@","t"}],",",RowBox[
+{"Reverse","[",RowBox[{"t","\[Transpose]"}],"]"}],",",RowBox[{RowBox[{"(",RowBox[
+{"Reverse","@","t"}],")"}],"\[Transpose]"}],",",RowBox[{"Reverse","[",RowBox[{"t",",","2"}],"]"}],",",RowBox[
+{"Reverse","[",RowBox[{"t",",",RowBox[{"{",RowBox[{"1",",","2"}],"}"}]}],"]"}],",",RowBox[
+{"Reverse","[",RowBox[{RowBox[{"t","\[Transpose]"}],",",RowBox[{"{",RowBox[{"1",","," ","2"}],"}"}]}],"]"}]}],"}"}]}]],
+"Input",CellID->6,CellLabel->"In[5]:= "],Cell[
+BoxData[RowBox[{RowBox[{"chunks","[","arr_","]"}]," ",":="," ",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"partLen",",","sideLen"}],"}"}],",","\n",RowBox[
+{RowBox[{"sideLen"," ","="," ",RowBox[{RowBox[{"Length","@",RowBox[{"Flatten","[","arr","]"}]}]," ","//"," ","Sqrt"}]}],";","\n",RowBox[
+{"partLen"," ","="," ",RowBox[{"If","[",RowBox[{RowBox[{"EvenQ","@","sideLen"}],","," ","2",","," ","3"}],"]"}]}],";","\n",RowBox[
+{"Partition","[",RowBox[{"arr",","," ",RowBox[{"{",RowBox[{"partLen",","," ","partLen"}],"}"}]}],"]"}]}]}],"\n","]"}]}]],
+"Input",CellID->104,CellLabel->"In[6]:= "],Cell[
+BoxData[RowBox[{RowBox[{RowBox[{"addRotations","[",RowBox[
+{"key_",","," ","val_"}],"]"}]," ",":="," ",RowBox[{"Scan","[",RowBox[{RowBox[{RowBox[
+{"AppendTo","[",RowBox[{"rules",","," ",RowBox[{"#"," ","\[Rule]"," ","val"}]}],"]"}],"&"}],","," ",RowBox[
+{"rotations","[","key","]"}]}],"]"}]}],";"}]],"Input",CellID->172,CellLabel->"In[7]:= "],Cell[
+BoxData[
+RowBox[{"Scan","[",RowBox[{RowBox[{RowBox[{"addRotations","[",RowBox[{"#",","," ",RowBox[
+{"#"," ","/."," ","rules"}]}],"]"}],"&"}],","," ",RowBox[{"Keys","@","rules"}]}],"]"}]],
+"Input",CellID->239,CellLabel->"In[8]:= "],Cell[
+BoxData[RowBox[{RowBox[{"iterate","[","arr_","]"}]," ",":="," ",RowBox[
+{RowBox[{RowBox[{RowBox[{"#","/."," ","rules"}],"&"}]," ","/@"," ",RowBox[{"chunks","[","arr","]"}]}]," ","//"," ","ArrayFlatten"}]}]],
+"Input",CellID->9,CellLabel->"In[9]:= "],Cell[
+BoxData[RowBox[{RowBox[{"Do","[",RowBox[
+{RowBox[{"board"," ","="," ",RowBox[{"iterate","@","board"}]}],","," ","5"}],"]"}],";"}]],
+"Input",CellID->567,CellLabel->"In[10]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part1"," ","="," ",RowBox[{"Count","[",RowBox[{RowBox[{"Flatten","@","board"}],","," ","\"#\""}],"]"}]}]],
+"Input",CellID->568,CellLabel->"In[11]:= "],Cell[
+BoxData["171",StandardForm],"Output",
+CellID->578,CellLabel->"Out[11]= "]},Open]],Cell[
+BoxData[RowBox[{RowBox[{"Do","[",RowBox[
+{RowBox[{"board"," ","="," ",RowBox[{"iterate","@","board"}]}],","," ","13"}],"]"}],";"}]],
+"Input",CellID->587,CellLabel->"In[12]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part2"," ","="," ",RowBox[{"Count","[",RowBox[{RowBox[{"Flatten","@","board"}],","," ","\"#\""}],"]"}]}]],
+"Input",CellID->588,CellLabel->"In[13]:= "],Cell[
+BoxData["2498142",StandardForm],
+"Output",CellID->589,CellLabel->"Out[13]= "]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

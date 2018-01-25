@@ -1,0 +1,25 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"timesMinus","[","list_","]"}]," ",":="," ",RowBox[
+{RowBox[{RowBox[{"list","[",RowBox[{"[","1","]"}],"]"}]," ","*"," ",RowBox[{"list","[",RowBox[
+{"[","2","]"}],"]"}]}]," ","-"," ",RowBox[{"list","[",RowBox[{"[","3","]"}],"]"}]}]}]],
+"Input",CellID->1,CellLabel->"In[52]:= "],Cell[
+BoxData[RowBox[{RowBox[{"findStart","[","puzzleInput_","]"}]," ",":="," ",RowBox[
+{"timesMinus","[",RowBox[{"Flatten","[",RowBox[{RowBox[{"(",RowBox[{RowBox[{"Select","[","IntegerQ","]"}]," ","/@"," ",RowBox[
+{"ImportString","[",RowBox[{"puzzleInput",","," ","\"Table\""}],"]"}]}],")"}],"[",RowBox[
+{"[",RowBox[{"{",RowBox[{"1",","," ","5",","," ","6"}],"}"}],"]"}],"]"}],"]"}],"]"}]}]],
+"Input",CellID->2,CellLabel->"In[53]:= "],Cell[
+BoxData[RowBox[{RowBox[{"composites","[","puzzleInput_","]"}]," ",":="," ",RowBox[
+{"(",RowBox[{RowBox[{"start"," ","="," ",RowBox[{"findStart","[","puzzleInput","]"}]}],";"," ",RowBox[
+{"Count","[",RowBox[{RowBox[{"PrimeQ"," ","/@"," ",RowBox[{"Range","[",RowBox[{"start",","," ",RowBox[
+{"start"," ","+"," ","17000"}],","," ","17"}],"]"}]}],","," ","False"}],"]"}]}],")"}]}]],
+"Input",CellID->3,CellLabel->"In[54]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"CloudDeploy","[",RowBox[{"FormFunction","[",RowBox[{RowBox[{"{",RowBox[{RowBox[
+{"{",RowBox[{"\"p\"",","," ","\"Paste in your Day 23 puzzle input\""}],"}"}]," ","\[Rule]"," ","\"TextArea\""}],"}"}],","," ",RowBox[
+{RowBox[{"composites","[","#p","]"}]," ","&"}]}],"]"}],"]"}]],"Input",CellID->4,CellLabel->"In[55]:= "],Cell[
+BoxData[
+TagBox[InterpretationBox[RowBox[{"CloudObject","[",TemplateBox[{"\"https://www.wolframcloud.com/objects/3eb0f5fa-3cae-4c6a-a19d-8b12135d6f93\"","https://www.wolframcloud.com/objects/3eb0f5fa-3cae-4c6a-a19d-8b12135d6f93"},
+"HyperlinkURL"],"]"}],CloudObject["https://www.wolframcloud.com/objects/3eb0f5fa-3cae-4c6a-a19d-8b12135d6f93"]],
+"RawBoxes"],StandardForm],"Output",CellID->5,CellLabel->"Out[55]= "]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

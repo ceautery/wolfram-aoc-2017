@@ -1,0 +1,71 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"file"," ","="," ",RowBox[{"Import","[",RowBox[
+{"\"day7input.txt\"",","," ","\"String\""}],"]"}]}],";"}]],"Input",CellID->142,CellLabel->"In[1]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{"formatted"," ","="," ",RowBox[{"StringReplace","[",RowBox[{"file",","," ",RowBox[
+{RowBox[{"RegularExpression","[","\"[^\\\\w\\\\s]\"","]"}]," ","\[Rule]"," ","\"\""}]}],"]"}]}],";"}]],
+"Input",CellID->252,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{RowBox[{"table"," ","="," ",RowBox[
+{"ImportString","[",RowBox[{"formatted",","," ","\"Table\""}],"]"}]}],";"}]],"Input",
+CellID->287,CellLabel->"In[3]:= "],Cell[
+BoxData[{RowBox[{"weights"," ","="," ","<|"," ","|>",";"," ","connections"," ","="," ","{","}",";"}],"\n",RowBox[
+{"Do","[","\n","parent"," ","="," ","row","[","[","1","]","]",";","\n","weights","[","parent","]"," ","="," ","row","[","[","2","]","]",";","\n","childColumns"," ","="," ","row","[","[","3",";;","]","]",";","\n","Do","[","AppendTo","[","connections",","," ","parent"," ","\[Rule]"," ","child","]",","," ","{","child",","," ","childColumns","}","]","\n",","," ","{","row",","," ","table","}","\n","]"}]}],
+"Input",CellID->318,CellLabel->"In[4]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"root"," ","="," ",RowBox[{RowBox[{"Complement","[",RowBox[{RowBox[{"Keys","[","connections","]"}],","," ",RowBox[
+{"Values","[","connections","]"}]}],"]"}]," ","//"," ","First"}]}]],"Input",CellID->53,
+CellLabel->"In[6]:= "],Cell[
+BoxData["\"vvsvez\"",StandardForm],"Output",CellID->61,
+CellLabel->"Out[6]= "]},Open]],Cell[
+BoxData[{RowBox[{"children","[","v_","]"," ",":="," ","Values","[","Select","[","connections",","," ","Keys","[","#","]"," ","=="," ","v","&","]","]"}],"\n",RowBox[
+{"siblings","[","v_","]"," ",":="," ","children"," ","@@"," ","Keys","[","Select","[","connections",","," ","Values","[","#","]"," ","=="," ","v","&","]","]"}]}],
+"Input",CellID->3,CellLabel->"In[7]:= "],Cell[
+BoxData[{RowBox[{"totalWeights"," ","="," ","<|"," ","|>",";"}],"\n",RowBox[
+{"totalWeight","[","v_","]"," ",":="," ","Module","[","{","weight","}",",","\n","weight"," ","="," ","totalWeights","[","v","]",";","\n","If","[","MissingQ","[","weight","]",",","\n","totalWeights","[","v","]"," ","="," ","weights","[","v","]"," ","+"," ","Plus"," ","@@"," ","(","totalWeight","[","#","]","&"," ","/@"," ","children","[","v","]",")",",","\n","weight","\n","]","\n","]"}]}],
+"Input",CellID->202,CellLabel->"In[9]:= "],Cell[
+BoxData[RowBox[{RowBox[{"BreadthFirstScan","[",RowBox[
+{RowBox[{"TreeGraph","[","connections","]"}],","," ","root",","," ",RowBox[{"{",RowBox[
+{"\"PrevisitVertex\""," ","\[Rule]",RowBox[{"(",RowBox[{RowBox[{"totalWeight","[","#","]"}],"&"}],")"}]}],"}"}]}],"]"}],";"}]],
+"Input",CellID->19,CellLabel->"In[11]:= "],Cell[
+BoxData[RowBox[{RowBox[{"oddManOut","[","list_","]"}]," ",":="," ",RowBox[
+{"Module","[",RowBox[{RowBox[{"{","tally","}"}],",","\n",RowBox[{RowBox[{"tally"," ","="," ",RowBox[
+{"Select","[",RowBox[{RowBox[{"Tally","[","list","]"}],","," ",RowBox[{RowBox[{RowBox[
+{"#","[",RowBox[{"[","2","]"}],"]"}]," ","=="," ","1"}],"&"}]}],"]"}]}],";","\n",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"Length","[","tally","]"}]," ",">"," ","0"}],","," ",RowBox[
+{"tally"," ","[",RowBox[{"[",RowBox[{"1",","," ","1"}],"]"}],"]"}],","," ","0"}],"]"}]}]}],"\n","]"}]}]],
+"Input",CellID->361,CellLabel->"In[12]:= "],Cell[
+BoxData[RowBox[{RowBox[{"oddChildOut","[","parent_","]"}]," ",":="," ",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"weightList",","," ","childVertices",","," ","badWeight"}],"}"}],",","\n",RowBox[
+{RowBox[{"childVertices"," ","="," ",RowBox[{"children","[","parent","]"}]}],";","\n",RowBox[
+{"weightList"," ","="," ",RowBox[{RowBox[{RowBox[{"totalWeights","[","#","]"}],"&"}]," ","/@"," ","childVertices"}]}],";","\n",RowBox[
+{"badWeight"," ","="," ",RowBox[{"oddManOut","[","weightList","]"}]}],";","\n",RowBox[
+{"If","[",RowBox[{RowBox[{"badWeight"," ","=="," ","0"}],",","\n","parent",",","\n",RowBox[
+{RowBox[{"(",RowBox[{RowBox[{RowBox[{"childVertices","[",RowBox[{"[","#","]"}],"]"}],"&"}]," ","@@"," ",RowBox[
+{"FirstPosition","[",RowBox[{"weightList",","," ","badWeight"}],"]"}]}],")"}]," ","//"," ","oddChildOut"}]}],"\n","]"}]}]}],"\n","]"}]}]],
+"Input",CellID->93,CellLabel->"In[13]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"nodeToChange"," ","="," ",RowBox[{"oddChildOut","[","root","]"}]}]],"Input",CellID->460,
+CellLabel->"In[14]:= "],Cell[
+BoxData["\"ghwgd\"",StandardForm],"Output",CellID->63,
+CellLabel->"Out[14]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"siblingWeights"," ","="," ",RowBox[
+{"totalWeights"," ","/@",RowBox[{"siblings","[","nodeToChange","]"}]}]}]],"Input",
+CellID->543,CellLabel->"In[15]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{"1184",",","1184",",","1192"}],"}"}],
+StandardForm],"Output",CellID->65,CellLabel->"Out[15]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"diff"," ","="," ",RowBox[{RowBox[{RowBox[{"totalWeights","[","nodeToChange","]"}]," ","-"," ",RowBox[
+{"Complement","[",RowBox[{"siblingWeights",","," ",RowBox[{"{",RowBox[{"totalWeights","[","nodeToChange","]"}],"}"}]}],"]"}]}]," ","//"," ","First"}]}]],
+"Input",CellID->568,CellLabel->"In[16]:= "],Cell[
+BoxData["8",StandardForm],"Output",
+CellID->67,CellLabel->"Out[16]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{RowBox[{"weights","[","nodeToChange","]"}]," ","-"," ","diff"}]],"Input",CellID->47,
+CellLabel->"In[17]:= "],Cell[
+BoxData["362",StandardForm],"Output",CellID->69,CellLabel->"Out[17]= "]},
+Open]]},StyleDefinitions->"Default.nb",FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

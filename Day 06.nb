@@ -1,0 +1,35 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"f"," ","="," ",RowBox[{"Compile","[",RowBox[
+{RowBox[{"{",RowBox[{"{",RowBox[{"input",","," ","_Integer",","," ","1"}],"}"}],"}"}],",","\n",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"banks",","," ","l",","," ","history",","," ","count",","," ","max",","," ","pos",","," ","hash"}],"}"}],",","\n",RowBox[
+{RowBox[{"banks"," ","="," ",RowBox[{RowBox[{"#","&"}]," ","/@"," ","input"}]}],";","\n",RowBox[
+{"l"," ","="," ",RowBox[{"Length","[","banks","]"}]}],";","\n",RowBox[{"history"," ","="," ",RowBox[
+{"{","}"}]}],";","\n",RowBox[{"count"," ","="," ","0"}],";","\n",RowBox[{"hash"," ","="," ",RowBox[
+{"Hash","[","banks","]"}]}],";","\n",RowBox[{RowBox[{"While","[",RowBox[{RowBox[{RowBox[
+{"Length","[",RowBox[{"Position","[",RowBox[{"history",","," ","hash"}],"]"}],"]"}]," ","=="," ","0"}],",","\n",RowBox[
+{RowBox[{"AppendTo","[",RowBox[{"history",","," ","hash"}],"]"}],";","\n",RowBox[
+{"max"," ","="," ",RowBox[{"Max","[","banks","]"}]}],";","\n",RowBox[{"pos"," ","="," ",RowBox[
+{RowBox[{"Position","[",RowBox[{"banks",","," ","max"}],"]"}]," ","//"," ","First"}]}],";","\n",RowBox[
+{RowBox[{"banks","[",RowBox[{"[","pos","]"}],"]"}]," ","="," ","0"}],";","\n",RowBox[
+{"While","[",RowBox[{RowBox[{RowBox[{"max","--"}]," ",">"," ","0"}],","," ",RowBox[
+{RowBox[{"pos"," ","="," ",RowBox[{RowBox[{"Mod","[",RowBox[{"pos",","," ","l"}],"]"}]," ","+"," ","1"}]}],";"," ",RowBox[
+{RowBox[{"banks","[",RowBox[{"[","pos","]"}],"]"}],"++"}]}]}],"]"}],";","\n",RowBox[
+{"hash"," ","="," ",RowBox[{"Hash","[","banks","]"}]}],";","\n",RowBox[{"count","++"}],";"}]}],"\n","]"}],"\n",RowBox[
+{"Print","[","count","]"}]}],";","\n","banks"}]}],"\n","]"}]}],"]"}]}],";"}]],"Input",
+CellID->268,CellLabel->"In[1]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"data"," ","="," ",RowBox[
+{RowBox[{"ImportString","[",RowBox[{"\"5   1   10  0   1   7   13  14  3   12  8   10  7   12  0   6\"",","," ","\"Table\""}],"]"}]," ","//"," ","First"}]}]],
+"Input",CellID->487,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{"5",",","1",",","10",",","0",",","1",",","7",",","13",",","14",",","3",",","12",",","8",",","10",",","7",",","12",",","0",",","6"}],"}"}],
+StandardForm],"Output",CellID->25,CellLabel->"Out[2]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"f","[",RowBox[{"f","[","data","]"}],"]"}]],"Input",CellID->18,
+CellLabel->"In[3]:= "],Cell[
+BoxData["5042",StandardForm],"Print",CellID->27],Cell[
+BoxData[
+"1086",StandardForm],"Print",CellID->29],Cell[
+BoxData[RowBox[{"{",RowBox[{"1",",","1",",","14",",","13",",","12",",","11",",","10",",","9",",","8",",","7",",","7",",","5",",","5",",","3",",","3",",","0"}],"}"}],
+StandardForm],"Output",CellID->30,CellLabel->"Out[3]= "]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

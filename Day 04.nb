@@ -1,0 +1,26 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"a"," ","="," ",RowBox[{"Import","[",RowBox[
+{"\"sentences.txt\"",","," ","\"Table\""}],"]"}]}],";"}]],"Input",CellID->1,CellLabel->"In[1]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"valid","[","row_","]"}]," ",":="," ",RowBox[{RowBox[{"Max","[",RowBox[
+{RowBox[{"(",RowBox[{"Tally","[","row","]"}],")"}],"[",RowBox[{"[",RowBox[{"All",","," ","2"}],"]"}],"]"}],"]"}]," ","=="," ","1"}]}],";"}]],
+"Input",CellID->25,CellLabel->"In[2]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part1"," ","="," ",RowBox[{"Count","[",RowBox[{RowBox[{"valid"," ","/@"," ","a"}],","," ","True"}],"]"}]}]],
+"Input",CellID->8,CellLabel->"In[3]:= "],Cell[
+BoxData["451",StandardForm],"Output",
+CellID->26,CellLabel->"Out[3]= "]},Open]],Cell[
+BoxData[RowBox[{RowBox[{"permutations","[","word_","]"}]," ",":="," ",RowBox[
+{"StringJoin"," ","/@"," ",RowBox[{"Permutations","[",RowBox[{"Characters","[","word","]"}],"]"}]}]}]],
+"Input",CellID->31,CellLabel->"In[4]:= "],Cell[
+BoxData[RowBox[{RowBox[{"p2valid","[","row_","]"}]," ",":="," ",RowBox[
+{RowBox[{"Max","[",RowBox[{RowBox[{"(",RowBox[{"Tally","[",RowBox[{"Flatten","[",RowBox[
+{"permutations"," ","/@"," ","row"}],"]"}],"]"}],")"}],"[",RowBox[{"[",RowBox[{"All",","," ","2"}],"]"}],"]"}],"]"}]," ","=="," ","1"}]}]],
+"Input",CellID->32,CellLabel->"In[5]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part2"," ","="," ",RowBox[{"Count","[",RowBox[{RowBox[{"p2valid"," ","/@"," ","a"}],","," ","True"}],"]"}]}]],
+"Input",CellID->33,CellLabel->"In[6]:= "],Cell[
+BoxData["223",StandardForm],"Output",
+CellID->34,CellLabel->"Out[6]= "]},Open]]},StyleDefinitions->"Default.nb",FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

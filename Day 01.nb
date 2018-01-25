@@ -1,0 +1,52 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[{RowBox[{"a"," ","="," ","\"5432215\"",";"}],"\n",RowBox[
+{"Interpreter","[","\"Integer\"","]"," ","/@"," ","Characters","[","a","]"}]}],"Input",
+CellID->1,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{"5",",","4",",","3",",","2",",","2",",","1",",","5"}],"}"}],
+StandardForm],"Output",CellID->4,CellLabel->"Out[3]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"IntegerQ","[",RowBox[{"%3","[",RowBox[{"[","1","]"}],"]"}],"]"}]],
+"Input",CellID->15,CellLabel->"In[5]:= "],Cell[
+BoxData["True",StandardForm],"Output",
+CellID->16,CellLabel->"Out[5]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"Select","[",RowBox[{RowBox[{RowBox[{RowBox[{"Transpose","[",RowBox[{"{",RowBox[
+{"#",","," ",RowBox[{"RotateLeft","[",RowBox[{"#",","," ","1"}],"]"}]}],"}"}],"]"}]," ","&"}],"[",RowBox[
+{"ToExpression"," ","/@"," ",RowBox[{"Characters","[","a","]"}]}],"]"}],","," ",RowBox[
+{RowBox[{"SameQ"," ","@@","#"}],"&"}]}],"]"}]],"Input",CellID->68,CellLabel->"In[11]:= "],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"2",",","2"}],"}"}],",",RowBox[{"{",RowBox[
+{"5",",","5"}],"}"}]}],"}"}],StandardForm],"Output",CellID->42,CellLabel->"Out[11]= "]},
+Open]],Cell[
+BoxData[RowBox[{RowBox[{"digits","[","str_","]"}]," ",":="," ",RowBox[
+{RowBox[{"Interpreter","[","\"Integer\"","]"}]," ","/@"," ",RowBox[{"Characters","[","str","]"}]}]}]],
+"Input",CellID->5,CellLabel->"In[6]:= "],Cell[
+BoxData[RowBox[{RowBox[{"pairs","[","d_","]"}]," ",":="," ",RowBox[
+{"Transpose","[",RowBox[{"{",RowBox[{"d",","," ",RowBox[{"RotateLeft","[",RowBox[
+{"d",","," ","1"}],"]"}]}],"}"}],"]"}]}]],"Input",CellID->23,CellLabel->"In[7]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{"matches","[","p_","]"}]," ",":="," ",RowBox[{"Select","[",RowBox[
+{"p",","," ",RowBox[{RowBox[{"SameQ"," ","@@"," ","#"}],"&"}]}],"]"}]}]],"Input",
+CellID->30,CellLabel->"In[8]:= "],Cell[
+BoxData[RowBox[{RowBox[{"sumFirst","[","m_","]"}]," ",":="," ",RowBox[
+{"Plus"," ","@@"," ",RowBox[{"m","[",RowBox[{"[",RowBox[{"All",","," ","1"}],"]"}],"]"}]}]}]],
+"Input",CellID->57,CellLabel->"In[9]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"sumFirst","[",RowBox[{"matches","[",RowBox[{"pairs","[",RowBox[{"digits","[","a","]"}],"]"}],"]"}],"]"}]],
+"Input",CellID->58,CellLabel->"In[31]:= "],Cell[
+BoxData["7",StandardForm],"Output",
+CellID->95,CellLabel->"Out[31]= "]},Open]],Cell[
+BoxData[RowBox[{RowBox[{"solve","[","str_","]"}]," ",":="," ",RowBox[
+{RowBox[{RowBox[{RowBox[{"str"," ","//"," ","digits"}]," ","//"," ","pairs"}]," ","//"," ","matches"}]," ","//"," ","sumFirst"}]}]],
+"Input",CellID->105,CellLabel->"In[43]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"solve","[","a","]"}]],"Input",CellID->149,CellLabel->"In[44]:= "],Cell[
+BoxData[
+"7",StandardForm],"Output",CellID->150,CellLabel->"Out[44]= "]},Open]],Cell[
+BoxData[
+""],"Input",CellID->156]},StyleDefinitions->"Default.nb",FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

@@ -1,0 +1,66 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"a"," ","="," ",RowBox[{"ImportString","[",RowBox[
+{"\"set b 99\nset c b\njnz a 2\njnz 1 5\nmul b 100\nsub b -100000\nset c b\nsub c -17000\nset f 1\nset d 2\nset e 2\nset g d\nmul g e\nsub g b\njnz g 2\nset f 0\nsub e -1\nset g e\nsub g b\njnz g -8\nsub d -1\nset g d\nsub g b\njnz g -13\njnz f 2\nsub h -1\nset g b\nsub g c\njnz g 2\njnz 1 3\nsub b -17\njnz 1 -23\"",","," ","\"Table\""}],"]"}]}],";"}]],
+"Input",CellID->4,CellLabel->"In[1]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"regs"," ","="," ",RowBox[{"Association","[",RowBox[{RowBox[{RowBox[{"#"," ","\[Rule]"," ","0"}],"&"}]," ","/@"," ",RowBox[
+{"Characters","[","\"abcdefgh\"","]"}]}],"]"}]}]],"Input",CellID->32,CellLabel->"In[2]:= "],Cell[
+BoxData[
+RowBox[{"\:f113",RowBox[{RowBox[{"\"a\"","\[Rule]","0"}],",",RowBox[{"\"b\"","\[Rule]","0"}],",",RowBox[
+{"\"c\"","\[Rule]","0"}],",",RowBox[{"\"d\"","\[Rule]","0"}],",",RowBox[{"\"e\"","\[Rule]","0"}],",",RowBox[
+{"\"f\"","\[Rule]","0"}],",",RowBox[{"\"g\"","\[Rule]","0"}],",",RowBox[{"\"h\"","\[Rule]","0"}]}],"\:f114"}],
+StandardForm],"Output",CellID->198,CellLabel->"Out[2]= "]},Open]],Cell[
+BoxData[RowBox[
+{RowBox[{"getval","[","maybeRegister_","]"}]," ",":="," ",RowBox[{"If","[",RowBox[
+{RowBox[{"IntegerQ","@","maybeRegister"}],","," ","maybeRegister",","," ",RowBox[
+{"regs","[","maybeRegister","]"}]}],"]"}]}]],"Input",CellID->42,CellLabel->"In[3]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"set","[",RowBox[{"reg_",","," ","val_"}],"]"}],":="," ",RowBox[
+{RowBox[{"regs","[","reg","]"}]," ","="," ",RowBox[{"getval","[","val","]"}]}]}],";"}]],
+"Input",CellID->48,CellLabel->"In[4]:= "],Cell[
+BoxData[RowBox[{RowBox[{RowBox[{"sub","[",RowBox[
+{"reg_",","," ","val_"}],"]"}],":="," ",RowBox[{RowBox[{"regs","[","reg","]"}]," ","-="," ",RowBox[
+{"getval","[","val","]"}]}]}],";"}]],"Input",CellID->49,CellLabel->"In[5]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{"mul","[",RowBox[{"reg_",","," ","val_"}],"]"}],":="," ",RowBox[{"(",RowBox[
+{RowBox[{RowBox[{"regs","[","reg","]"}]," ","*="," ",RowBox[{"getval","[","val","]"}]}],";"," ",RowBox[
+{"count","++"}],";"}],")"}]}]],"Input",CellID->50,CellLabel->"In[6]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{RowBox[{"jnz","[",RowBox[{"maybeReg_",","," ","val_"}],"]"}],":=",RowBox[
+{"If","[",RowBox[{RowBox[{RowBox[{"getval","[","maybeReg","]"}]," ","\[NotEqual]"," ","0"}],",",RowBox[
+{"pos"," ","+="," ",RowBox[{"val","-","1"}]}]}],"]"}]}],";"}]],"Input",CellID->51,
+CellLabel->"In[7]:= "],Cell[
+BoxData[{RowBox[{"pos"," ","="," ","1",";"," ","count"," ","="," ","0",";"}],"\n",RowBox[
+{"While","[","Between","[","pos",","," ","{","1",","," ","Length","@","a","}","]",",","\n","cmd"," ","="," ","a","[","[","pos","]","]",";","\n","ToExpression","[","First","@","cmd","]"," ","@@"," ","cmd","[","[","{","2",",","3","}","]","]","'","\n","pos","++",";","\n","]","\n"}]}],
+"Input",CellID->41,CellLabel->"In[8]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part1"," ","="," ","count"}]],"Input",CellID->68,CellLabel->"In[10]:= "],Cell[
+BoxData[
+"9409",StandardForm],"Output",CellID->200,CellLabel->"Out[10]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"nums"," ","="," ",RowBox[{RowBox[{RowBox[{RowBox[{"Select","[",RowBox[
+{"#",","," ","IntegerQ"}],"]"}],"&"}]," ","/@"," ","a"}]," ","//"," ","Flatten"}]}]],
+"Input",CellID->7,CellLabel->"In[11]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{"99",",","2",",","1",",","5",",","100",",",RowBox[
+{"-","100000"}],",",RowBox[{"-","17000"}],",","1",",","2",",","2",",","2",",","0",",",RowBox[
+{"-","1"}],",",RowBox[{"-","8"}],",",RowBox[{"-","1"}],",",RowBox[{"-","13"}],",","2",",",RowBox[
+{"-","1"}],",","2",",","1",",","3",",",RowBox[{"-","17"}],",","1",",",RowBox[{"-","23"}]}],"}"}],
+StandardForm],"Output",CellID->202,CellLabel->"Out[11]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"start"," ","="," ",RowBox[{RowBox[{RowBox[{"(",RowBox[{RowBox[
+{"#"," ","*"," ","#2"}]," ","-"," ","#3"}],")"}],"&"}]," ","@@",RowBox[{"nums","[",RowBox[
+{"[",RowBox[{"{",RowBox[{"1",","," ","5",","," ","6"}],"}"}],"]"}],"]"}]}]}]],"Input",
+CellID->11,CellLabel->"In[12]:= "],Cell[
+BoxData["109900",StandardForm],"Output",
+CellID->204,CellLabel->"Out[12]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part2"," ","="," ",RowBox[{"Count","[",RowBox[{RowBox[{"PrimeQ"," ","/@"," ",RowBox[
+{"Range","[",RowBox[{"start",","," ",RowBox[{"start"," ","+"," ","17000"}],","," ","17"}],"]"}]}],","," ","False"}],"]"}]}]],
+"Input",CellID->14,CellLabel->"In[13]:= "],Cell[
+BoxData["913",StandardForm],"Output",
+CellID->206,CellLabel->"Out[13]= "]},Open]]},StyleDefinitions->"Default.nb",FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

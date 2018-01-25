@@ -1,0 +1,57 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"input"," ","="," ",RowBox[{"First","@",RowBox[
+{"Import","[",RowBox[{"\"day16input.txt\"",","," ","\"CSV\""}],"]"}]}]}],";"}]],"Input",
+CellID->7,CellLabel->"In[1]:= "],Cell[
+BoxData[RowBox[{RowBox[{"spin","[","n_","]"}]," ",":="," ",RowBox[
+{"line"," ","="," ",RowBox[{"Join","[",RowBox[{RowBox[{"line","[",RowBox[{"[",RowBox[
+{RowBox[{"-","n"}],";;"}],"]"}],"]"}],","," ",RowBox[{"line","[",RowBox[{"[",RowBox[
+{"1",";;",RowBox[{RowBox[{"-","n"}],"-","1"}]}],"]"}],"]"}]}],"]"}]}]}]],"Input",
+CellID->425,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{RowBox[{"swapPositions","[",RowBox[
+{"a_",","," ","b_"}],"]"}]," ",":="," ",RowBox[{RowBox[{"{",RowBox[{RowBox[{"line","[",RowBox[
+{"[","a","]"}],"]"}],","," ",RowBox[{"line","[",RowBox[{"[","b","]"}],"]"}]}],"}"}]," ","="," ",RowBox[
+{"{",RowBox[{RowBox[{"line","[",RowBox[{"[","b","]"}],"]"}],","," ",RowBox[{"line","[",RowBox[
+{"[","a","]"}],"]"}]}],"}"}]}]}]],"Input",CellID->138,CellLabel->"In[3]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{"swapLetters","[",RowBox[{"i_",","," ","j_"}],"]"}]," ",":="," ",RowBox[
+{"swapPositions","[",RowBox[{RowBox[{"First","@",RowBox[{"FirstPosition","[",RowBox[
+{"line",",","i"}],"]"}]}],","," ",RowBox[{"First","@",RowBox[{"FirstPosition","[",RowBox[
+{"line",",","j"}],"]"}]}]}],"]"}]}]],"Input",CellID->159,CellLabel->"In[4]:= "],Cell[
+BoxData[
+RowBox[{"scanner"," ",":=",RowBox[{"Scan","[",RowBox[{RowBox[{RowBox[{"StringReplace","[",RowBox[
+{"#",","," ",RowBox[{"{","\n",RowBox[{RowBox[{RowBox[{"\"s\"","~~"," ",RowBox[{"n",":",RowBox[
+{"DigitCharacter",".."}]}]}]," ","\[RuleDelayed]"," ",RowBox[{"spin","[",RowBox[{"ToExpression","[","n","]"}],"]"}]}],",","\n",RowBox[
+{RowBox[{"\"x\"","~~",RowBox[{"a",":",RowBox[{"DigitCharacter",".."}]}],"~~","\"/\"","~~",RowBox[
+{"b",":",RowBox[{"DigitCharacter",".."}]}]}]," ","\[RuleDelayed]"," ",RowBox[{"swapPositions"," ","@@"," ",RowBox[
+{"(",RowBox[{RowBox[{"ToExpression","[",RowBox[{"{",RowBox[{"a",",","b"}],"}"}],"]"}]," ","+"," ",RowBox[
+{"{",RowBox[{"1",",","1"}],"}"}]}],")"}]}]}],",","\n",RowBox[{RowBox[{"\"p\"","~~",RowBox[
+{"i",":","LetterCharacter"}],"~~","\"/\"","~~",RowBox[{"j",":","LetterCharacter"}]}]," ","\[RuleDelayed]"," ",RowBox[
+{"swapLetters","[",RowBox[{"i",",","j"}],"]"}]}]}],"\n","}"}]}],"\n","]"}],"&"}],",","input"}],"]"}]}]],
+"Input",CellID->286,CellLabel->"In[5]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{RowBox[{"part1"," ","="," ",RowBox[{"line"," ","="," ",RowBox[{RowBox[{"Alphabet","[","]"}],"[",RowBox[
+{"[",RowBox[{"1",";;","16"}],"]"}],"]"}]}]}],";"," ",RowBox[{"scanner","[","]"}],";",RowBox[
+{"StringJoin","[","line","]"}]}]],"Input",CellID->36,CellLabel->"In[6]:= "],Cell[
+BoxData[
+"\"gkmndaholjbfcepi\"",StandardForm],"Output",CellID->432,CellLabel->"Out[6]= "]},
+Open]],Cell[
+CellGroupData[{Cell[
+BoxData[{RowBox[{"count"," ","="," ","0",";"," ","line"," ","="," ","Alphabet","[","]","[","[","1",";;","16","]","]",";"}],"\n",RowBox[
+{"perms"," ","="," ","{","}",";"}],"\n",RowBox[{"While","["," !","MemberQ","[","perms",","," ","StringJoin","[","line","]","]",",","\n","count","++",";","\n","AppendTo","[","perms",","," ","StringJoin","[","line","]","]",";","\n","scanner","[","]",";","\n","]",";"," ","count"}]}],
+"Input",CellID->239,CellLabel->"In[7]:= "],Cell[
+BoxData["60",StandardForm],"Output",
+CellID->434,CellLabel->"Out[9]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"index"," ","="," ",RowBox[{"Mod","[",RowBox[{"1000000000",","," ","count"}],"]"}]}]],
+"Input",CellID->400,CellLabel->"In[10]:= "],Cell[
+BoxData["40",StandardForm],"Output",
+CellID->436,CellLabel->"Out[10]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"part2"," ","="," ",RowBox[{"perms","[",RowBox[{"[",RowBox[{"index"," ","+"," ","1"}],"]"}],"]"}]}]],
+"Input",CellID->394,CellLabel->"In[11]:= "],Cell[
+BoxData["\"abihnfkojcmegldp\"",
+StandardForm],"Output",CellID->438,CellLabel->"Out[11]= "]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

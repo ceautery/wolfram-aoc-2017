@@ -1,0 +1,40 @@
+Notebook[{Cell[
+BoxData[RowBox[{RowBox[{"p1"," ","="," ",RowBox[{"Compile","[",RowBox[
+{RowBox[{"{",RowBox[{"{",RowBox[{"input",","," ","_Integer",","," ","1"}],"}"}],"}"}],",","\n","\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"a",","," ","pos",","," ","count"}],"}"}],",","\n","\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]",RowBox[
+{RowBox[{"a"," ","="," ",RowBox[{RowBox[{"#","&"}]," ","/@"," ","input"}]}],";","\n","\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]",RowBox[
+{"pos"," ","="," ","1"}],";"," ",RowBox[{"count"," ","="," ","0"}],";","\n","\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]",RowBox[
+{"While","[",RowBox[{RowBox[{"pos"," ","\[LessEqual]"," ",RowBox[{"Length","[","a","]"}]}],","," ",RowBox[
+{RowBox[{"pos"," ","+="," ",RowBox[{RowBox[{"a","[",RowBox[{"[","pos","]"}],"]"}],"++"}]}],";"," ",RowBox[
+{"count","++"}]}]}],"]"}],";","\n","\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]","count"}]}],"\n","\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]\[NonBreakingSpace]","]"}]}],"\n","]"}]}],";"}]],
+"Input",CellID->59,CellLabel->"In[1]:= "],Cell[
+BoxData[RowBox[{RowBox[{"p2"," ","="," ",RowBox[
+{"Compile","[",RowBox[{RowBox[{"{",RowBox[{"{",RowBox[{"input",","," ","_Integer",","," ","1"}],"}"}],"}"}],",","\n","    ",RowBox[
+{"Module","[",RowBox[{RowBox[{"{",RowBox[{"a",","," ","pos",","," ","count"}],"}"}],",","\n","        ",RowBox[
+{RowBox[{"a"," ","="," ",RowBox[{RowBox[{"#","&"}]," ","/@"," ","input"}]}],";","\n","        ",RowBox[
+{"pos"," ","="," ","1"}],";"," ",RowBox[{"count"," ","="," ","0"}],";","\n","        ",RowBox[
+{"While","[",RowBox[{RowBox[{"pos"," ","\[LessEqual]"," ",RowBox[{"Length","[","a","]"}]}],","," ",RowBox[
+{RowBox[{"pos"," ","+="," ",RowBox[{"If","[",RowBox[{RowBox[{RowBox[{"a","[",RowBox[
+{"[","pos","]"}],"]"}]," ","<"," ","3"}],","," ",RowBox[{RowBox[{"a","[",RowBox[{"[","pos","]"}],"]"}],"++"}],","," ",RowBox[
+{RowBox[{"a","[",RowBox[{"[","pos","]"}],"]"}],"--"}]}],"]"}]}],";"," ",RowBox[{"count","++"}]}]}],"]"}],";","\n","        ","count"}]}],"\n","    ","]"}]}],"\n","]"}]}],";"}]],
+"Input",CellID->14,CellLabel->"In[2]:= "],Cell[
+BoxData[RowBox[{RowBox[{"data"," ","="," ",RowBox[
+{"Import","[",RowBox[{"\"day5input.txt\"",","," ","\"List\""}],"]"}]}],";"}]],"Input",
+CellID->51,CellLabel->"In[3]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"p1","[","data","]"}]],
+"Input",CellID->37,CellLabel->"In[4]:= "],Cell[
+BoxData["359348",StandardForm],"Output",
+CellID->3,CellLabel->"Out[4]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"p2","[","data","]"}]],"Input",CellID->11,CellLabel->"In[5]:= "],Cell[
+BoxData["27688760",
+StandardForm],"Output",CellID->5,CellLabel->"Out[5]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"Sort","[",RowBox[{"Compile`CompileFunction","[","]"}],"]"}]],
+"Input",CellID->4,CellLabel->"In[24]:= "],Cell[
+BoxData[RowBox[{"Compile`CompileFunction","[","]"}],
+StandardForm],"Output",CellID->23,CellLabel->"Out[24]= "]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]
